@@ -8,6 +8,7 @@ from club.super_admin.views import AdminClubView,SinglePictureView, UpdateUserVi
 from club.contact_president.views import ContactPresidentView, ContactPresidentMessageView
 from .accounts.views import MemberApplicationRecordSerializerView, LogoutView, \
     MemberApplicationSerializerView, DeleteMemberApplication
+from .outh.views import ObtainAuthToken
 
 r = DefaultRouter()
 r.register('info/view-profile', UpdateUserView)
@@ -26,7 +27,7 @@ urlpatterns = [
     path('add-user/', SignupUserView.as_view(), name='add-user'),
 
     #Login
-    path('login/', obtain_auth_token, name='login'),
+    path('login/', ObtainAuthToken.as_view(), name='login'),
 
     #Logged in user
     path('contact-president/', ContactPresidentView.as_view()),
