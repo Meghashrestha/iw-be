@@ -49,6 +49,8 @@ class ObtainAuthToken(APIView):
 
         return Response({
             'token': token.key,
+            'first_name':user.first_name,
+            'laste_name':user.last_name,
             'user': user.username,
             'email': user.email,
             'is_staff':user.is_staff,
